@@ -1,7 +1,7 @@
 
 # coding: utf-8
 
-# In[117]:
+# In[125]:
 
 
 from PIL import Image, ImageDraw
@@ -10,7 +10,7 @@ import math, cv2, numpy as np
 
 # Load the jpg file into a numpy array
 # Choose a picture 'richard_curtis.jpg' 'rihanna.jpg' 'ryan_gosling.jpg' 'arnie.jpg' 'drake.jpg' 'kim_kardashian'
-image = face_recognition.load_image_file("richard_curtis.jpg")
+image = face_recognition.load_image_file("arnie.jpg")
 # Choose a noise 'sniffer.png' 'sourcerer.png' 'teeth.png' 'viking.png' 'cook.png' 'djboogy.png' 'drnose.png' 'owl.png'
 nose_pic = Image.open('teeth.png', mode='r')
 
@@ -25,11 +25,11 @@ print('nose_tip coordinates',face_landmarks['nose_tip'])
 print('nose_bridge coordinates',face_landmarks['nose_bridge'])
 
 # left part of the nose tip, adding -5 as the picture of the nose is smaller than picture size
-left = face_landmarks['nose_tip'][0][0] -5
+left = face_landmarks['nose_tip'][0][0] -7
 # right part of the nose tip, adding +5 as the picture of the nose is smaller than picture size
-right = face_landmarks['nose_tip'][4][0] +5
+right = face_landmarks['nose_tip'][4][0] +7
 # lower part of the nose bridge
-lower = face_landmarks['nose_tip'][2][1] +2
+lower = face_landmarks['nose_tip'][2][1] +4
 # upper part of the nose bridge, based on lower ground as nose picture is a square
 upper = lower - (right-left)
 
